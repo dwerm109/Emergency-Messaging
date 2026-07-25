@@ -1,23 +1,13 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="refresh" content="60">
-    <style>
-      body, html {
-        margin: 0;
-        padding: 0;
-        height: 100%;
-        overflow: hidden;
-      }
-      iframe {
-        border: none;
-        width: 100%;
-        height: 100%;
-      }
-    </style>
-  </head>
-  <body>
-    <iframe src="https://script.google.com/macros/s/AKfycbxgHLvcXxyC1zkC0hfD1WoRTrqTAGfY8LzisygOeuMef0Ko3UgIWH_5vO6qebFlbJfD/exec"></iframe>
-  </body>
-</html>
+<script>
+  async function checkStatus() {
+    const res = await fetch('https://script.google.com/macros/s/AKfycbxgHLvcXxyC1zkC0hfD1WoRTrqTAGfY8LzisygOeuMef0Ko3UgIWH_5vO6qebFlbJfD/exec');
+    const text = await res.text();
+    if (text.trim() === 'True') {
+      // trigger your BrightAuthor action here
+    } else {
+      // do something else
+    }
+  }
+  setInterval(checkStatus, 60000);
+  checkStatus();
+</script>
